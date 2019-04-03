@@ -123,6 +123,46 @@ void cetak(){
 		cout<<"(List Kosong)\n";
 } 
 
+void hapusDepan(){
+	TNode *hapus;
+	int d;
+	hapus = head;
+	d = head->data;
+		if(head != tail){
+			hapus = head;
+			head = head->next;
+			tail->next = head;
+			delete hapus;
+		}
+		else{
+			head=NULL;
+			tail=NULL;
+		}
+		cout<<endl<<d<<" terhapus\n";
+}
+
+void hapusBelakang(){
+	TNode *hapus,*bantu;
+	int d;
+		if(head == tail){
+			d = tail->data;
+			head = NULL;
+			tail = NULL;
+		}
+		else{
+			bantu = head;
+			while(bantu->next != tail){
+				bantu = bantu->next;
+			}
+			hapus = tail;
+			tail = bantu;
+			d = hapus->data;
+			tail->next = head;
+			delete hapus;
+		}
+		cout<<endl<<d<<" terhapus\n";
+}
+
 void hapusKhusus(int n){
 	TNode *bantu,*hapus;
 	int d,f=0;
