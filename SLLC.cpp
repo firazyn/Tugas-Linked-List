@@ -123,3 +123,19 @@ void menu(){
             				cout<<"\nPilih ulang"<<endl;
 					}
 				break;
+			case '3' :
+      			exit(0);
+            		break;
+      		default :
+            		cout<<"\nPilih ulang"<<endl;
+      	}
+      	cout<<"\nKembali ke menu?(y/n)\n>>";
+      	cin>>ulang;
+    }
+	while(ulang=='y' || ulang=='Y');
+}
+
+int main(){
+	menu();
+	return 0;
+}
