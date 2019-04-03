@@ -23,6 +23,44 @@ int isEmpty(){
 		return 0;
 }
 
+void isiDepan(int databaru){
+	TNode *baru;
+	baru = new TNode;
+	baru->data = databaru;
+	baru->next = baru;
+		if(isEmpty()==1){
+			head=baru;
+			tail=baru;
+			head->next=head;
+			tail->next=tail;
+		}
+		else {
+			baru->next = head;
+			head = baru;
+			tail->next = head;
+		}
+	cout<<"Data masuk\n";
+}
+
+void isiBelakang(int databaru){
+	TNode *baru;
+	baru = new TNode;
+	baru->data = databaru;
+	baru->next = baru;
+		if	(isEmpty()==1){
+			head=baru;
+			tail=baru;
+			head->next=head;
+			tail->next=tail;
+		}
+		else {
+			tail->next = baru;
+			tail = baru;
+			tail->next = head;
+		}
+	cout<<"Data masuk\n";
+}
+
 void isiKhusus(int n, int x){
 	TNode *bantu,*baru,*pagar,*cek;
 	int f=1;
