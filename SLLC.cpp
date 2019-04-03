@@ -23,6 +23,68 @@ int isEmpty(){
 		return 0;
 }
 
+void isiKhusus(int n, int x){
+	TNode *bantu,*baru,*pagar,*cek;
+	int f=1;
+	baru = new TNode;
+	baru->data=n;
+	baru->next=baru;
+	bantu = head;
+		if (head->data == x){
+			baru->next = head;
+			head = baru;
+			tail->next = head;
+			cout<<"Data masuk\n";
+		}
+		else{
+			while((bantu->next)->data != x){
+				bantu=bantu->next;
+				if (bantu == tail){
+					f=0;
+					break;
+				}
+			}
+			if(f==0)
+				cout<<"\nTidak ada nilai "<<x<<" pada list\n";
+			else{
+				pagar=bantu->next;
+				bantu->next=baru;
+				baru->next=pagar;
+				cout<<"Data masuk\n";
+			}
+		}	
+}
+
+void cetak(){
+	TNode *b;
+	b = head;
+	int s=1;
+	char n[2];
+	if	(isEmpty()==0){
+		cout<<"-->";
+		do{	itoa ((b->data),n,10);
+			if(b == tail)
+				cout<<b->data<<"--";
+			else
+				cout<<b->data<<"->";
+			s+=(strlen(n)+2);
+			b=b->next;
+		}
+		while(b!=tail->next);
+		cout<<endl<<"|";
+		for(int x=0;x<s;x++){
+			cout<<" ";
+		}
+		cout<<"|\n";
+		for(int x=0;x<s+2;x++){
+			cout<<"-";
+		}
+		cout<<endl;
+	} 
+	else 
+		cout<<"(List Kosong)\n";
+} 
+
 void hapusKhusus(int n){
 	TNode *bantu,*hapus;
 	int d,f=0;
